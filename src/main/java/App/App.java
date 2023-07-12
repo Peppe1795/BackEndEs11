@@ -45,14 +45,14 @@ public class App {
 		LocationDAO lc = new LocationDAO(em);
 		PartecipazioneDAO pt = new PartecipazioneDAO(em);
 
-		primo.setLocation(primaLoc);
-		secondo.setLocation(secondaLoc);
-		ev.save(primo);
-		ev.save(secondo);
 		pr.save(primaPers);
 		pr.save(secondaPers);
 		lc.save(primaLoc);
+		primo.setLocation(primaLoc);
+		ev.save(primo);
 		lc.save(secondaLoc);
+		secondo.setLocation(secondaLoc);
+		ev.save(secondo);
 		pt.save(primaPart);
 		pt.save(secondaPart);
 
