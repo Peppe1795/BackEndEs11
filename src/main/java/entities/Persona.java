@@ -44,4 +44,9 @@ public class Persona {
 		this.sesso = sesso;
 	}
 
+	public void addPartecipazione(Partecipazione partecipazione) {
+		listaPartecipazioni.add(partecipazione);
+		partecipazione.setPersona(this);
+	}
+
 }
