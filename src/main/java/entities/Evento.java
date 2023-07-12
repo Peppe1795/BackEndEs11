@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -38,7 +39,7 @@ public class Evento {
 	private int numeroMassimoPartecipanti;
 	@OneToMany
 	private Set<Partecipazione> listaPArtecipazione;
-	@OneToOne
+	@ManyToOne
 	private Location location;
 
 	public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento,

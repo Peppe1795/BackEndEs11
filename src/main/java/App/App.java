@@ -1,7 +1,6 @@
 package App;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,15 +45,16 @@ public class App {
 		LocationDAO lc = new LocationDAO(em);
 		PartecipazioneDAO pt = new PartecipazioneDAO(em);
 
+		primo.setLocation(primaLoc);
+		secondo.setLocation(secondaLoc);
 		ev.save(primo);
 		ev.save(secondo);
-
-		Evento trovatoID = ev.findDataById(UUID.fromString("30b5481f-bd73-4be9-af74-9a0a2d441020"));
-		System.out.println(trovatoID);
-
-		ev.delete(UUID.fromString("6b576885-7adc-43a1-ab17-b713b4ba6351"));
-
-		ev.refresh(UUID.fromString("a73e9825-964a-4c37-9635-539f71490259"));
+		pr.save(primaPers);
+		pr.save(secondaPers);
+		lc.save(primaLoc);
+		lc.save(secondaLoc);
+		pt.save(primaPart);
+		pt.save(secondaPart);
 
 		em.close();
 		emf.close();
