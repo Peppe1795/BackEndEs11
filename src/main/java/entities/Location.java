@@ -16,6 +16,11 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class Location {
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", nome=" + nome + ", città=" + città + "]";
+	}
+
 	@Id
 	@GeneratedValue
 	private UUID id;
