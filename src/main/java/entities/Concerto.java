@@ -19,13 +19,13 @@ import lombok.Setter;
 public class Concerto extends Evento {
 	@Enumerated(EnumType.STRING)
 	private Genere genere;
-	private boolean inStreaming;
+	private boolean isInStreaming;
 
 	public Concerto(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento,
-			int numeroMassimoPartecipanti, Location location, Genere genere, boolean inStreaming) {
+			int numeroMassimoPartecipanti, Location location, Genere genere, boolean isInStreaming) {
 		super(titolo, dataEvento, descrizione, tipoEvento, numeroMassimoPartecipanti, location);
 		this.genere = genere;
-		this.inStreaming = inStreaming;
+		this.isInStreaming = isInStreaming;
 	}
 
 }

@@ -62,10 +62,10 @@ public class App {
 		setAtleti.add(primaPers);
 		setAtleti.add(secondaPers);
 
-		List<Genere> generi = new ArrayList<>();
-		generi.add(Genere.CLASSICO);
-		generi.add(Genere.POP);
-		generi.add(Genere.ROCK);
+		List<Genere> generiConcerto = new ArrayList<>();
+		generiConcerto.add(Genere.CLASSICO);
+		generiConcerto.add(Genere.POP);
+		generiConcerto.add(Genere.ROCK);
 
 		GaraDiAtletica primaAtl = new GaraDiAtletica("Olimpiadi estive", LocalDate.of(2023, 8, 12), "gara di atletica",
 				TipoEvento.PUBBLICO, 600000, secondaLoc, setAtleti, secondaPers);
@@ -105,7 +105,7 @@ public class App {
 		List<Concerto> listaConcerti = ev.getConcertiInStreaming(true);
 		listaConcerti.forEach(s -> System.out.println(s));
 
-		List<Concerto> concertoGenere = ev.getConcertiPerGenere(generi);
+		List<Concerto> concertoGenere = ev.getConcertiPerGenere(generiConcerto);
 		concertoGenere.forEach(s -> System.out.println(s));
 
 		em.close();

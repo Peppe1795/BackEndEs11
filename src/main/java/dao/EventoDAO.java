@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 import entities.Concerto;
 import entities.Evento;
 import entities.Genere;
+import entities.PartitaDiCalcio;
 
 public class EventoDAO {
 
@@ -69,16 +70,24 @@ public class EventoDAO {
 
 	public List<Concerto> getConcertiInStreaming(boolean isInStreaming) {
 		TypedQuery<Concerto> streaming = em
-				.createQuery("SELECT s FROM Concerto s WHERE s.isInStreaming= :isInStreaming", Concerto.class);
+				.createQuery("SELECT s FROM Concerto s WHERE s.isInStreaming = :isInStreaming", Concerto.class);
 		streaming.setParameter("isInStreaming", isInStreaming);
 		return streaming.getResultList();
 	}
 
 	public List<Concerto> getConcertiPerGenere(List<Genere> generiConcerto) {
-		TypedQuery<Concerto> genere = em
-				.createQuery("SELECT s FROM Concerto s WHERE s.generiConcerto IN: generiConcerto ", Concerto.class);
-		genere.setParameter("generiConcerto", generiConcerto);
-		return genere.getResultList();
+		String jpql = "SELECT c FROM Concerto c WHERE c.genere";
+		TypedQuery<Concerto> query = em.createQuery(jpql, Concerto.class);
+		query.setParameter("generiConcerto", generiConcerto);
+		return query.getResultList();
 	}
 
+	public List<PartitaDiCalcio> getPartiteVinteInCasa(List<PartitaDiCalcio> listaPartite) {
+		String jpql = "SELECT c FROM ParitaDicalcio c WHERE c.squadraVincente";
+		TypedQuery<PartitaDiCalcio> query = em.createQuery(jpql, PartitaDiCalcio.class);
+		if (jpql != null) {
+
+		}
+
+	}
 }
